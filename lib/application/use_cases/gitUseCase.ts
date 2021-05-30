@@ -9,8 +9,8 @@ export default class GitUseCases {
   }
 
   async getCommits() {
-    const data = await this.gitRepository.getCommits();
-    return data;
+    const commits = await this.gitRepository.getCommits();
+    return commits;
   }
 
 };

@@ -1,3 +1,3 @@
 export default interface IAuthRepository {
-  getCommits(): Promise<any>;
+  getCommits(page?: number): Promise<any>;
 };
