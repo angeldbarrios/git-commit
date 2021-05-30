@@ -8,7 +8,8 @@ export default (appContext: AppContext) => {
 
   router.get('/commits', async(req: Request, res: Response, next: NextFunction) => {
     try {
-      const data = await gitUseCases.getCommits();
+      const { page } = req.query;
+      const data = await gitUseCases.getCommits(page as string);
       res.json({ 
         error: false,
         data: data

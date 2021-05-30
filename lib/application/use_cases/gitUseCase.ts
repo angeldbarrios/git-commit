@@ -8,8 +8,8 @@ export default class GitUseCases {
     this.gitRepository = appContext.repositories.gitRepository;
   }
 
-  async getCommits() {
-    const commits = await this.gitRepository.getCommits();
+  async getCommits(page: string = '1') {
+    const commits = await this.gitRepository.getCommits(Number(page));
     return commits;
   }
 
