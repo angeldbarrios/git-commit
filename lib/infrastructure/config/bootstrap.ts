@@ -3,7 +3,7 @@ import { AppContext } from '../../domain/types/appContext';
 import { getGitRemote } from './utils';
 
 export default {
-  async init() {
+  async init(): Promise<AppContext> {
     const gitRemote = await getGitRemote();
     const appContext: AppContext = {
       repositories: getRepositories({ gitRemote })

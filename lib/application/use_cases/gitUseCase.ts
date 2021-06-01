@@ -8,7 +8,7 @@ export default class GitUseCases {
     this.gitRepository = appContext.repositories.gitRepository;
   }
 
-  async getCommits(page: number | string = 1) {
+  async getCommits(page: number | string = 1): Promise<unknown> {
     page = Number(page);
     if(!page) {
       const error = new Error('Invalid page value');
@@ -20,4 +20,4 @@ export default class GitUseCases {
     return commits;
   }
 
-};
+}

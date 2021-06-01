@@ -17,12 +17,10 @@ describe('GET /commits - GitController', function () {
   let app: Express;
   let appContext: AppContext;
   let axiosGetStub: sinon.SinonStub;
-  let getGitRemote: sinon.SinonStub;
-  let loggerStub: sinon.SinonStubbedInstance<any>;
 
   before(async function () {
-    loggerStub = sinon.stub(logger);
-    getGitRemote = sinon.stub(utils, 'getGitRemote')
+    sinon.stub(logger);
+    sinon.stub(utils, 'getGitRemote')
       .returns(Promise.resolve(gitRemote));
     appContext = await bootstrap.init();
     app = App(appContext); 
@@ -101,7 +99,7 @@ describe('GET /commits - GitController', function () {
       .get('/api/v1/git/commits')
       .set('Accept', 'application/json')
       .expect('Content-Type', 'application/json; charset=utf-8')
-      .expect(500, function(err, res) {
+      .expect(500, function(err, _res) {
         if (err) return done(err);
         done();
       });

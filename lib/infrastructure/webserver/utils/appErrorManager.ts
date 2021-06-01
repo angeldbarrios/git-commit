@@ -22,7 +22,7 @@ const errorMapping = {
 
 export default (err: Error, req: Request, res: Response, _next: NextFunction) => {
   try {
-    let errHandler = errorMapping[err.name];
+    const errHandler = errorMapping[err.name];
     
     if(errHandler) {
       const { status, message } = errHandler({ ip: req.ip, url: req.url, err });

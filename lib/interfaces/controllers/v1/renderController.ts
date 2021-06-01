@@ -1,8 +1,7 @@
 import path from 'path';
 import express, { NextFunction, Request, Response } from 'express';
-import { AppContext } from '../../../domain/types/appContext';
 
-export default (appContext: AppContext) => {
+export default (): express.Router => {
   const router = express.Router();
 
   router.get('/', (_req: Request, res: Response, next: NextFunction) => {

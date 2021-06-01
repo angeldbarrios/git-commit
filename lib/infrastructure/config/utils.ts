@@ -24,6 +24,7 @@ export function getGitRemote (): Promise<GitRemote> {
         return;
       }
 
+      /* eslint-disable prefer-const*/
       let [, gitUsername, gitRepository ] = repoUrl.pathname.split('/');
       // remove .git from repo name
       gitRepository = path.parse(gitRepository).name;

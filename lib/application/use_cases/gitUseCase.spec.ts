@@ -20,7 +20,7 @@ describe('Git Use Cases', function () {
     appContext = {
       repositories: {
         gitRepository: new (class {
-          async getCommits() {}
+          async getCommits() { return; }
         })
       }
     };

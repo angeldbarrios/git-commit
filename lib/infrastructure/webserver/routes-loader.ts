@@ -6,6 +6,6 @@ import renderController from '../../interfaces/controllers/v1/renderController';
 export default (appContext: AppContext) => {
   const app = express.Router();
   app.use('/api/v1', v1Controller(appContext));
-  app.use('/app', renderController(appContext));
+  app.use('/app', renderController());
   return app;
 };

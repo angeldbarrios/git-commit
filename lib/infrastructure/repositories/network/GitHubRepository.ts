@@ -13,7 +13,7 @@ export default class GitHubRepository implements IGitRepository {
     this.baseUrl = url.format(repoUrl);
   }
 
-  async getCommits(page: number = 1) {
+  async getCommits(page = 1) {
     const commitUrl = `${this.baseUrl}/commits`;
     const response = await axios.get(commitUrl, {
       params: { page: page }
