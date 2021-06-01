@@ -18,7 +18,8 @@ describe('GET /commits - GitController', function () {
   let axiosGetStub: sinon.SinonStub;
 
   before(async function () {
-    sinon.stub(logger);
+    sinon.stub(logger); // to avoid loggings in case of errors
+    // mocking to avoid using child process
     sinon.stub(utils, 'getGitRemote').returns(Promise.resolve(gitRemote));
     appContext = await bootstrap.init();
     app = App(appContext);

@@ -6,7 +6,7 @@ import environment from '../../config/environment';
 import { Express } from 'express';
 
 async function getServer(app: Express) {
-  let server: Server | Server;
+  let server: Server;
 
   if (environment.server.HTTPS === true) {
     const https = await import('https');
