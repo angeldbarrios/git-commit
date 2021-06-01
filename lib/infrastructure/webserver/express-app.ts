@@ -2,7 +2,7 @@ import express from "express";
 import hpp from 'hpp';
 import helmet from "helmet";
 import cors from "cors";
-
+import path from 'path';
 import { AppContext } from "../../domain/types/appContext";
 
 import requestLimiter from './middlewares/requestLimiterMiddleware';
@@ -28,8 +28,10 @@ function App(appContext: AppContext) {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
   
+  app.use('/public', express.static(path.join(__dirname, '..', '..', 'public')));
+
   /** Routes */
-  app.use("/api", routesLoader(appContext));
+  app.use("/", routesLoader(appContext));
 
   /** 404 errors */
   app.use(error404Manager);
