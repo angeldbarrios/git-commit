@@ -25,8 +25,13 @@ PORT='3000'
 4.  Go to `http://localhost:3000/app`
 
 
-In `lib/public` there is a compiled `.js` and `.html`
-The repo of this other project is: https://github.com/angeldbarrios/git-commit-react
+Front-end was build with a simple React App
+Source code React App: https://github.com/angeldbarrios/git-commit-react
+
+
+In `lib/public` is located the output from React App Building process,
+which is what is rendered to client in this test-project
+
 
 
 **TODOS**
