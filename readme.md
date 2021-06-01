@@ -1,5 +1,4 @@
-Summary:
-Get list of commits of this repo via Github API
+# Summary: Get list of commits of this repo via Github API
 
 
 **Commands**
