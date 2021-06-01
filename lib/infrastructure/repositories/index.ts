@@ -3,8 +3,8 @@ import { Repositories } from '../../domain/types/appContext';
 
 export default ({ gitRemote }) => {
   const repositories: Repositories = {
-    gitRepository: new GitHubRepository(gitRemote)
+    gitRepository: new GitHubRepository(gitRemote),
   };
 
   return repositories;
-}
+};

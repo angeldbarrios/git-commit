@@ -10,7 +10,7 @@
     "test": "mocha -r ts-node/register lib/**/*.spec.ts",
     "lint": "eslint . --ext .ts || true",
     "lint:fix": "eslint . --ext .ts --fix || true",
-    "prettier": "prettier 'lib/**/*.ts'"
+    "prettier": "prettier --config .prettierrc.js lib/**/*.ts --write"
   },
   "dependencies": {
     "axios": "^0.21.1",

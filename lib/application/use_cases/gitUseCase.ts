@@ -1,5 +1,4 @@
-import { AppContext } from "../../domain/types/appContext";
-
+import { AppContext } from '../../domain/types/appContext';
 
 export default class GitUseCases {
   private gitRepository: AppContext['repositories']['gitRepository'];
@@ -10,7 +9,7 @@ export default class GitUseCases {
 
   async getCommits(page: number | string = 1): Promise<unknown> {
     page = Number(page);
-    if(!page) {
+    if (!page) {
       const error = new Error('Invalid page value');
       error.name = 'BAD_DATA';
       throw error;
@@ -19,5 +18,4 @@ export default class GitUseCases {
     const commits = await this.gitRepository.getCommits(Number(page));
     return commits;
   }
-
 }

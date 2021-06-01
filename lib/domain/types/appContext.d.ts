@@ -1,4 +1,4 @@
-import IGitRepository from "../repositories/IGitRepository";
+import IGitRepository from '../repositories/IGitRepository';
 
 export type Repositories = {
   gitRepository?: IGitRepository;
@@ -7,4 +7,4 @@ export type Repositories = {
 export type AppContext = {
   repositories: Repositories;
   errors?: any;
-}
+};

@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from 'express';
 
 export default (_req: Request, _res: Response, next: NextFunction) => {
   try {
@@ -8,4 +8,4 @@ export default (_req: Request, _res: Response, next: NextFunction) => {
   } catch (error) {
     next(error);
   }
-}
+};

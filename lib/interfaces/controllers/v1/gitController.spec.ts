@@ -12,7 +12,6 @@ import { AppContext } from '../../../domain/types/appContext';
 import { gitRemote, gitHubRepositoryData, finalCommitsData } from '../../../../test/test-data.spec';
 import { Express } from 'express';
 
-
 describe('GET /commits - GitController', function () {
   let app: Express;
   let appContext: AppContext;
@@ -20,16 +19,15 @@ describe('GET /commits - GitController', function () {
 
   before(async function () {
     sinon.stub(logger);
-    sinon.stub(utils, 'getGitRemote')
-      .returns(Promise.resolve(gitRemote));
+    sinon.stub(utils, 'getGitRemote').returns(Promise.resolve(gitRemote));
     appContext = await bootstrap.init();
-    app = App(appContext); 
+    app = App(appContext);
   });
-  
+
   after(function () {
     sinon.restore();
   });
-  
+
   beforeEach(function () {
     axiosGetStub = sinon.stub(axios, 'get');
   });
@@ -38,7 +36,6 @@ describe('GET /commits - GitController', function () {
     axiosGetStub.restore();
   });
 
-
   // starting the tests
   it('should return commits and have all needed keys', function (done) {
     axiosGetStub.returns(Promise.resolve({ data: gitHubRepositoryData }));
@@ -46,11 +43,11 @@ describe('GET /commits - GitController', function () {
       .get('/api/v1/git/commits')
       .set('Accept', 'application/json')
       .expect('Content-Type', 'application/json; charset=utf-8')
-      .expect(200, function(err, res) {
+      .expect(200, function (err, res) {
         if (err) return done(err);
         expect(res.body).to.be.eql({
           error: false,
-          data: finalCommitsData
+          data: finalCommitsData,
         });
 
         done();
@@ -61,19 +58,18 @@ describe('GET /commits - GitController', function () {
     axiosGetStub.returns(Promise.resolve({ data: gitHubRepositoryData }));
     request(app)
       .get('/api/v1/git/commits')
-      .query({ page: 'invalid_page'})
+      .query({ page: 'invalid_page' })
       .set('Accept', 'application/json')
       .expect('Content-Type', 'application/json; charset=utf-8')
-      .expect(400, function(err, res) {
+      .expect(400, function (err, res) {
         if (err) return done(err);
-        expect(res.body).to.be.eql({ 
-          error: true, 
-          message: 'Invalid page value'
+        expect(res.body).to.be.eql({
+          error: true,
+          message: 'Invalid page value',
         });
         done();
       });
   });
-
 
   it('should return empty array as data if there are not commits', function (done) {
     axiosGetStub.returns(Promise.resolve({ data: [] }));
@@ -81,17 +77,16 @@ describe('GET /commits - GitController', function () {
       .get('/api/v1/git/commits')
       .set('Accept', 'application/json')
       .expect('Content-Type', 'application/json; charset=utf-8')
-      .expect(200, function(err, res) {
+      .expect(200, function (err, res) {
         if (err) return done(err);
         expect(res.body).to.be.eql({
           error: false,
-          data: []
+          data: [],
         });
 
         done();
       });
   });
-
 
   it('should returns 500 status code when there is some error getting data', function (done) {
     axiosGetStub.throws(new Error('Intentional error'));
@@ -99,7 +94,7 @@ describe('GET /commits - GitController', function () {
       .get('/api/v1/git/commits')
       .set('Accept', 'application/json')
       .expect('Content-Type', 'application/json; charset=utf-8')
-      .expect(500, function(err, _res) {
+      .expect(500, function (err, _res) {
         if (err) return done(err);
         done();
       });

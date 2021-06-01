@@ -12,13 +12,12 @@ export default (appContext: AppContext) => {
       const data = await gitUseCases.getCommits(page as string);
       res.json({
         error: false,
-        data: data
+        data: data,
       });
     } catch (error) {
       next(error);
     }
   });
 
-  
   return router;
-}
+};

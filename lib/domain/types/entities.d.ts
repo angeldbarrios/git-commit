@@ -1,3 +1,1 @@
-export type Commit = {
-  
-};
+export type Commit = {};

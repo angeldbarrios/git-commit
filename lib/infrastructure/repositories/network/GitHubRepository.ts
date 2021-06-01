@@ -1,7 +1,6 @@
-
 import url from 'url';
 import axios from 'axios';
-import IGitRepository from "../../../domain/repositories/IGitRepository";
+import IGitRepository from '../../../domain/repositories/IGitRepository';
 import { GitRemote } from '../../types';
 
 export default class GitHubRepository implements IGitRepository {
@@ -16,7 +15,7 @@ export default class GitHubRepository implements IGitRepository {
   async getCommits(page = 1) {
     const commitUrl = `${this.baseUrl}/commits`;
     const response = await axios.get(commitUrl, {
-      params: { page: page }
+      params: { page: page },
     });
 
     const data = response.data;
@@ -24,7 +23,7 @@ export default class GitHubRepository implements IGitRepository {
       throw new Error('Not expected input - Github');
     }
 
-    const commitsData = data.map(commit => {
+    const commitsData = data.map((commit) => {
       return {
         sha: commit.sha,
         author: commit.commit.author,

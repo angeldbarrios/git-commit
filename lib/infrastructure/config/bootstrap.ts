@@ -6,9 +6,9 @@ export default {
   async init(): Promise<AppContext> {
     const gitRemote = await getGitRemote();
     const appContext: AppContext = {
-      repositories: getRepositories({ gitRemote })
+      repositories: getRepositories({ gitRemote }),
     };
 
     return appContext;
-  }
+  },
 };

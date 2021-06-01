@@ -7,12 +7,11 @@ export default (): express.Router => {
   router.get('/', (_req: Request, res: Response, next: NextFunction) => {
     try {
       const filePath = path.join(__dirname, '..', '..', '..', 'public', 'index.html');
-      res.sendFile(filePath);      
+      res.sendFile(filePath);
     } catch (error) {
       next(error);
     }
   });
 
-  
   return router;
-}
+};
