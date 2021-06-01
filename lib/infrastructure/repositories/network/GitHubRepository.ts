@@ -20,7 +20,7 @@ export default class GitHubRepository implements IGitRepository {
     });
 
     const data = response.data;
-    if(!Array.isArray(data)) {
+    if (!Array.isArray(data)) {
       throw new Error('Not expected input - Github');
     }
 

@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import bootstrap from './lib/infrastructure/config/bootstrap';
 import initServer from './lib/infrastructure/webserver/server';
 import logger from './lib/infrastructure/webserver/logger';

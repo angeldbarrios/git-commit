@@ -6,11 +6,11 @@ export default (appContext: AppContext) => {
   const router = express.Router();
   const gitUseCases = new GitUseCases(appContext);
 
-  router.get('/commits', async(req: Request, res: Response, next: NextFunction) => {
+  router.get('/commits', async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { page } = req.query;
       const data = await gitUseCases.getCommits(page as string);
-      res.json({ 
+      res.json({
         error: false,
         data: data
       });
@@ -19,5 +19,6 @@ export default (appContext: AppContext) => {
     }
   });
 
+  
   return router;
 }
