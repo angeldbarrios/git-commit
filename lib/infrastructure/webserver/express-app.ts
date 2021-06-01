@@ -28,6 +28,13 @@ function App(appContext: AppContext) {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
   
+  app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+    if(req.url === '/favicon.ico') {
+      return res.status(204).send();
+    }
+    next();
+  });
+
   app.use('/public', express.static(path.join(__dirname, '..', '..', 'public')));
 
   /** Routes */

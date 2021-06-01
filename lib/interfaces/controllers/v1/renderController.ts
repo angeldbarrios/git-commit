@@ -1,6 +1,5 @@
 import path from 'path';
 import express, { NextFunction, Request, Response } from 'express';
-import GitUseCases from '../../../application/use_cases/gitUseCase';
 import { AppContext } from '../../../domain/types/appContext';
 
 export default (appContext: AppContext) => {
