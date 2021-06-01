@@ -2,13 +2,13 @@ Summary:
 Get list of commits of this repo via Github API
 
 
-**Commands **
+**Commands**
 
 `npm install` to install dependencies
 `npm test` to run test
 `npm run lint` to run linter (optional)
 
-** Configure **
+**Configure**
 
 By default server is listening on port 3000
 `.env` file configuration at the root of the project
@@ -18,7 +18,7 @@ NODE_ENV='development'
 PORT='3000'
 ```
 
-** Steps **
+**Steps**
 
 1.  Install packages with `npm install`
 2.  Run tests
