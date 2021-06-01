@@ -27,3 +27,8 @@ PORT='3000'
 
 In `lib/public` there is a compiled `.js` and `.html`
 The repo of this other project is: https://github.com/angeldbarrios/git-commit-react
+
+
+**TODOS**
+- Improve tests
+- 
