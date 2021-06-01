@@ -3,9 +3,9 @@
 
 **Commands**
 
--`npm install` to install dependencies
--`npm test` to run test
--`npm run lint` to run linter (optional)
+- `npm install` to install dependencies
+- `npm test` to run test
+- `npm run lint` to run linter (optional)
 
 **Configure**
 
